@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Translator</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🌍 AI Translator</h2>
+
+<form method="POST">
+
+<textarea name="text" placeholder="Enter text here">{{ input_text }}</textarea>
+
+<br><br>
+
+<select name="language">
+
+<option value="en">English</option>
+<option value="hi">Hindi</option>
+<option value="gu">Gujarati</option>
+<option value="mr">Marathi</option>
+<option value="ta">Tamil</option>
+<option value="bn">Bengali</option>
+<option value="pa">Punjabi</option>
+<option value="fr">French</option>
+<option value="es">Spanish</option>
+
+</select>
+
+<br>
+
+<button type="submit">Translate</button>
+
+<button type="submit" name="voice">🎤 Voice Input</button>
+
+</form>
+
+<div class="result">
+
+<h3>Translated Text:</h3>
+
+<p>{{ translated_text }}</p>
+
+{% if audio_file %}
+
+<h3>Audio Output:</h3>
+
+<audio controls>
+<source src="{{ audio_file }}" type="audio/mpeg">
+</audio>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+</html>
